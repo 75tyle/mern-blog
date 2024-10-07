@@ -49,7 +49,7 @@ export default function UpdatePost() {
       }
       setImageUploadError(null)
       const storage = getStorage(app)
-      const fileName = new Date().getTime() + '-' + file.name;
+      const fileName = new Date().getTime() + '-' + file.name.replace(/\s+/g,'_');
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
